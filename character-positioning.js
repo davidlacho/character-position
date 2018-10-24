@@ -1,21 +1,28 @@
 const countLetters = (input) => {
   input = input.split(' ').join('');
-  let returnObject = {};
+  let newObject = {};
   for (let i = 0; i < input.length; i++) {
     let characterToCheck = input[i];
-    let characterIndices = [];
+    // let characterIndices = [];
 
-    if (!returnObject[characterToCheck]) {
-      for (let j = 0; j < input.length; j++) {
-        if (input[j] === characterToCheck) {
-          characterIndices.push(j);
-        }
-      }
-      returnObject[characterToCheck] = characterIndices;
+    // if (!newObject[characterToCheck]) {
+    //   for (let j = 0; j < input.length; j++) {
+    //     if (input[j] === characterToCheck) {
+    //       characterIndices.push(j);
+    //     }
+    //   }
+    //   newObject[characterToCheck] = characterIndices;
+    // }
+
+    if (!newObject[characterToCheck]) {
+      newObject[characterToCheck] = [];
     }
+
+    newObject[characterToCheck].push(i);
+
   }
 
-  return returnObject;
+  return newObject;
 }
 
 console.log(countLetters("lighthouse in the house"));
